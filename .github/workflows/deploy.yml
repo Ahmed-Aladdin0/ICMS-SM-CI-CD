@@ -22,11 +22,17 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      #- name: Run Tests
-      #  run: npm test  # Ensure you have tests in package.json
+      - name: Run Tests
+        run: npm test  # Ensure you have tests in package.json
 
       - name: Build Project
         run: npm run build
+
+      #login to azure
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v2
