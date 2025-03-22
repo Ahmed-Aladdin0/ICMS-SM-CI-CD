@@ -28,6 +28,10 @@ app.use("/api/posts", postsRoutes);
 app.use("/api/comments", commentsRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/auth", centralAuthRoutes);
+app.get("/", (req, res) => {
+    res.send("Server is running successfully!");
+});
+
 
 
 const port = process.env.PORT || 8080;
